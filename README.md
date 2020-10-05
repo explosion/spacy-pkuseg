@@ -1,3 +1,14 @@
+<a href="https://explosion.ai"><img src="https://explosion.ai/assets/img/logo.svg" width="125" height="125" align="right" /></a>
+
+# spacy-pkuseg: Chinese word segmentation toolkit for spaCy
+
+This package is a fork of
+[`pkuseg-python`](https://github.com/lancopku/pkuseg-python) that simplifies
+installation and serialization for use with [spaCy](https://spacy.io). The
+underlying segmentation tools remain unmodified.
+
+----------
+
 # pkuseg：一个多领域中文分词工具包 [**(English Version)**](readme/readme_english.md)
 
 pkuseg 是基于论文[[Luo et. al, 2019](#论文引用)]的工具包。其简单易用，支持细分领域分词，有效提升了分词准确度。
