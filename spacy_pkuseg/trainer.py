@@ -6,22 +6,22 @@ import os
 import time
 from multiprocessing import Process, Queue
 
-from pkuseg import res_summarize
+from . import res_summarize
 
 # from .inference import *
 # from .config import Config
-from pkuseg.config import Config, config
-from pkuseg.data import DataSet
-from pkuseg.feature_extractor import FeatureExtractor
+from .config import Config, config
+from .data import DataSet
+from .feature_extractor import FeatureExtractor
 
 # from .feature_generator import *
-from pkuseg.model import Model
-import pkuseg.inference as _inf
+from .model import Model
+from . import inference as _inf
 
 # from .inference import *
 # from .gradient import *
-from pkuseg.optimizer import ADF
-from pkuseg.scorer import getFscore
+from .optimizer import ADF
+from .scorer import getFscore
 
 # from typing import TextIO
 

@@ -9,7 +9,7 @@ from collections import Counter
 from itertools import product
 
 import cython
-from pkuseg.config import config
+from .config import config
 
 
 @cython.boundscheck(False)

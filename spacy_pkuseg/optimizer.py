@@ -1,7 +1,7 @@
 import random
 
 import numpy as np
-import pkuseg.gradient as _grad
+import spacy_pkuseg.gradient as _grad
 
 # from pkuseg.config import config
 
