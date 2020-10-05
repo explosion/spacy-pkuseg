@@ -23,6 +23,8 @@ class Config:
         "tourism": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/tourism.zip",
         "news": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/news.zip",
         "web": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/web.zip",
+        "mixed": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/mixed.zip",
+        "spacy_ontonotes": "https://github.com/explosion/spacy-pkuseg/releases/download/v0.0.26/spacy_ontonotes.zip",
     }
     model_hash = {
         "postag": "afdf15f4e39bc47a39be4c37e3761b0c8f6ad1783f3cd3aff52984aebc0a1da9",
@@ -30,8 +32,10 @@ class Config:
         "tourism": "1c84a0366fe6fda73eda93e2f31fd399923b2f5df2818603f426a200b05cbce9",
         "news": "18188b68e76b06fc437ec91edf8883a537fe25fa606641534f6f004d2f9a2e42",
         "web": "4867f5817f187246889f4db259298c3fcee07c0b03a2d09444155b28c366579e",
+        "mixed": "c72a6e4646916044246916c6fa69ae6f67cb8a5b06bc9ca615f1322d9d4ae8ad",
+        "spacy_ontonotes": "90d4e2af40d6202c04d2f86830cdd138f828fcb3eb31ec9685a46c5e6c29dc7f",
     }
-    available_models = ["default", "medicine", "tourism", "web", "news"]
+    available_models = ["spacy_ontonotes", "medicine", "tourism", "web", "news", "mixed"]
     models_with_dict = ["medicine", "tourism"]
 
 

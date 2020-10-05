@@ -187,19 +187,13 @@ class Postprocesser:
         return self.post_process(sent, check_seperated=True)
 
 class pkuseg:
-    def __init__(self, model_name="default", user_dict="default", postag=False):
+    def __init__(self, model_name="spacy_ontonotes", user_dict="default", postag=False):
         """初始化函数，加载模型及用户词典"""
         # print("loading model")
         # config = Config()
         # self.config = config
         self.postag = postag
-        if model_name in ["default"]:
-            config.modelDir = os.path.join(
-                os.path.dirname(os.path.realpath(__file__)),
-                "models",
-                model_name,
-            )
-        elif model_name in config.available_models:
+        if model_name in config.available_models:
             config.modelDir = os.path.join(
                 config.pkuseg_home,
                 model_name,
@@ -212,7 +206,7 @@ class pkuseg:
             file_name = None
             other_names = None
         else:
-            if user_dict not in config.available_models:
+            if user_dict not in config.available_models + ["default"]:
                 file_name = user_dict
             else:
                 file_name = None
