@@ -33,7 +33,7 @@ class Config:
         "news": "18188b68e76b06fc437ec91edf8883a537fe25fa606641534f6f004d2f9a2e42",
         "web": "4867f5817f187246889f4db259298c3fcee07c0b03a2d09444155b28c366579e",
         "mixed": "c72a6e4646916044246916c6fa69ae6f67cb8a5b06bc9ca615f1322d9d4ae8ad",
-        "spacy_ontonotes": "90d4e2af40d6202c04d2f86830cdd138f828fcb3eb31ec9685a46c5e6c29dc7f",
+        "spacy_ontonotes": "b216e7f92de7ae285aeab8feba2faa8ea8216e5995ff6fb3d391cc8356db1bfe",
     }
     available_models = ["spacy_ontonotes", "medicine", "tourism", "web", "news", "mixed"]
     models_with_dict = ["medicine", "tourism"]
