@@ -53,7 +53,7 @@ def setup_package():
             "License :: Other/Proprietary License",
             "Operating System :: OS Independent",
         ],
-        install_requires=["cython", "numpy>=1.16.0"],
+        install_requires=["cython", "numpy>=1.16.0", "srsly>=2.3.0,<3.0.0"],
         setup_requires=["cython", "numpy>=1.16.0"],
         ext_modules=extensions,
         zip_safe=False,

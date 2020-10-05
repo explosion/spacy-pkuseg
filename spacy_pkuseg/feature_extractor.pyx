@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import pickle
+import srsly
 from collections import Counter
 from itertools import product
 
@@ -574,9 +575,7 @@ class FeatureExtractor:
         data["feature_to_idx"] = self.feature_to_idx
         data["tag_to_idx"] = self.tag_to_idx
 
-        with open(os.path.join(model_dir, 'features.pkl'), 'wb') as writer:
-            pickle.dump(data, writer, protocol=4)
-
+        srsly.write_msgpack(os.path.join(model_dir, 'features.msgpack'), data)
 
         # with open(
         #     os.path.join(config.modelDir, "features.json"), "w", encoding="utf8"
@@ -588,6 +587,21 @@ class FeatureExtractor:
         if model_dir is None:
             model_dir = config.modelDir
         extractor = cls.__new__(cls)
+
+        feature_path = os.path.join(model_dir, "features.msgpack")
+        if os.path.exists(feature_path):
+            data = srsly.read_msgpack(feature_path)
+            extractor.unigram = set(data["unigram"])
+            extractor.bigram = set(data["bigram"])
+            extractor.feature_to_idx = data["feature_to_idx"]
+            extractor.tag_to_idx = data["tag_to_idx"]
+
+            return extractor
+
+        print(
+            "WARNING: features.msgpack does not exist, try loading features.pkl",
+            file=sys.stderr,
+        )
 
         feature_path = os.path.join(model_dir, "features.pkl")
         if os.path.exists(feature_path):
