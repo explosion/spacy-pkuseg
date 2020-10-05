@@ -12,14 +12,14 @@ import multiprocessing
 
 from multiprocessing import Process, Queue
 
-import pkuseg.trainer as trainer
-import pkuseg.inference as _inf
+from . import trainer
+from . import inference as _inf
 
-from pkuseg.config import config
-from pkuseg.feature_extractor import FeatureExtractor
-from pkuseg.model import Model
-from pkuseg.download import download_model
-from pkuseg.postag import Postag
+from .config import config
+from .feature_extractor import FeatureExtractor
+from .model import Model
+from .download import download_model
+from .postag import Postag
 
 class TrieNode:
     """建立词典的Trie树节点"""
