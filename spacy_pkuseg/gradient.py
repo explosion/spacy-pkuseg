@@ -1,12 +1,12 @@
-import pkuseg.model
+from . import model
 from typing import List
 
-import pkuseg.inference as _inf
-import pkuseg.data
+from . import inference as _inf
+from . import data
 
 
 def get_grad_SGD_minibatch(
-    grad: List[float], model: pkuseg.model.Model, X: List[pkuseg.data.Example]
+    grad: List[float], model: model.Model, X: List[data.Example]
 ):
     # if idset is not None:
     #     idset.clear()
@@ -21,7 +21,7 @@ def get_grad_SGD_minibatch(
 
 
 def get_grad_CRF(
-    grad: List[float], model: pkuseg.model.Model, x: pkuseg.data.Example
+    grad: List[float], model: model.Model, x: data.Example
 ):
 
     id_set = set()

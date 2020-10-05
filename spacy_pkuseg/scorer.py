@@ -1,4 +1,4 @@
-from pkuseg.config import Config
+from .config import Config
 
 
 def getFscore(goldTagList, resTagList, idx_to_chunk_tag):
