@@ -10,23 +10,24 @@ def is_source_release(path):
 def setup_package():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    long_description = "pkuseg-python"
+    long_description = "file: README.md"
+    long_description_content_type = "text/markdown"
 
     extensions = [
         Extension(
-            "pkuseg.inference",
-            ["pkuseg/inference.pyx"],
+            "spacy_pkuseg.inference",
+            ["spacy_pkuseg/inference.pyx"],
             include_dirs=[np.get_include()],
             language="c++"
         ),
         Extension(
-            "pkuseg.feature_extractor",
-            ["pkuseg/feature_extractor.pyx"],
+            "spacy_pkuseg.feature_extractor",
+            ["spacy_pkuseg/feature_extractor.pyx"],
             include_dirs=[np.get_include()],
         ),
         Extension(
-            "pkuseg.postag.feature_extractor",
-            ["pkuseg/postag/feature_extractor.pyx"],
+            "spacy_pkuseg.postag.feature_extractor",
+            ["spacy_pkuseg/postag/feature_extractor.pyx"],
             include_dirs=[np.get_include()],
         ),
     ]
@@ -37,14 +38,14 @@ def setup_package():
 
 
     setuptools.setup(
-        name="pkuseg",
+        name="spacy_pkuseg",
         version="0.0.25",
-        author="Lanco",
-        author_email="luoruixuan97@pku.edu.cn",
+        author="Explosion",
+        author_email="contact@explosion.ai",
         description="A small package for Chinese word segmentation",
         long_description=long_description,
-        long_description_content_type="text/markdown",
-        url="https://github.com/lancopku/pkuseg-python",
+        long_description_content_type=long_description_content_type,
+        url="https://github.com/explosion/spacy-pkuseg",
         packages=setuptools.find_packages(),
         package_data={"": ["*.txt*", "*.pkl", "*.npz", "*.pyx", "*.pxd"]},
         classifiers=[

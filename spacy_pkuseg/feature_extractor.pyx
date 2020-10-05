@@ -575,7 +575,7 @@ class FeatureExtractor:
         data["tag_to_idx"] = self.tag_to_idx
 
         with open(os.path.join(model_dir, 'features.pkl'), 'wb') as writer:
-            pickle.dump(data, writer, protocol=pickle.HIGHEST_PROTOCOL)
+            pickle.dump(data, writer, protocol=4)
 
 
         # with open(
