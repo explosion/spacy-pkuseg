@@ -39,7 +39,7 @@ def setup_package():
 
     setuptools.setup(
         name="spacy_pkuseg",
-        version="0.0.26",
+        version="0.0.27",
         author="Explosion",
         author_email="contact@explosion.ai",
         description="A small package for Chinese word segmentation",
