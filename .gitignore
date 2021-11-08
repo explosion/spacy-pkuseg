@@ -1,6 +1,5 @@
 *.pyd
 *.html
-*.txt*
 build
 tmp/
 data/
