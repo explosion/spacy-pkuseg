@@ -54,7 +54,6 @@ class Preprocesser:
                     w = w_t.strip()
                     t = ''
                 else:
-                    assert isinstance(w_t, tuple)
                     assert len(w_t)==2
                     w, t = map(lambda x:x.strip(), w_t)
                 self.insert(w, t)
