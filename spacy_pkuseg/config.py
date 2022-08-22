@@ -25,6 +25,10 @@ class Config:
         "web": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/web.zip",
         "mixed": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.16/mixed.zip",
         "spacy_ontonotes": "https://github.com/explosion/spacy-pkuseg/releases/download/v0.0.26/spacy_ontonotes.zip",
+        "default_v2": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.25/default_v2.zip",
+        "art": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.25/art.zip",
+        "entertainment": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.25/entertainment.zip",
+        "science": "https://github.com/lancopku/pkuseg-python/releases/download/v0.0.25/science.zip",
     }
     model_hash = {
         "postag": "afdf15f4e39bc47a39be4c37e3761b0c8f6ad1783f3cd3aff52984aebc0a1da9",
@@ -34,8 +38,12 @@ class Config:
         "web": "4867f5817f187246889f4db259298c3fcee07c0b03a2d09444155b28c366579e",
         "mixed": "c72a6e4646916044246916c6fa69ae6f67cb8a5b06bc9ca615f1322d9d4ae8ad",
         "spacy_ontonotes": "b216e7f92de7ae285aeab8feba2faa8ea8216e5995ff6fb3d391cc8356db1bfe",
+        "default_v2": "b666aa4428c19e537a907fc835a2cd424be28b632fe9bf9a575039e09034bf12",
+        "art": "1bfef92effe593a2fa37a5d28dcd748164f21eee023f7e30f689fa5d5b473eba",
+        "entertainment": "d6f0beb2b128581206fb9b21122e733b5a27822d8891bf3c627c81edd8346ee2",
+        "science": "0c2b944a7c420d4a5cb8280c1bb90e9ddd3d108c9e5b21e9774b13024d28d486",
     }
-    available_models = ["spacy_ontonotes", "medicine", "tourism", "web", "news", "mixed"]
+    available_models = ["spacy_ontonotes", "medicine", "tourism", "web", "news", "mixed", "default_v2", "art", "entertainment", "science"]
     models_with_dict = ["medicine", "tourism"]
 
 
