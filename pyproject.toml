@@ -1,8 +1,8 @@
 [build-system]
 requires = [
     "setuptools",
-    "numpy>=1.16.0; python_version < '3.9'",
-    "numpy>=1.25.0; python_version >= '3.9'",
+    "numpy>=2.0.0,<3.0.0; python_version < '3.9'",
+    "numpy>=2.0.0,<3.0.0; python_version >= '3.9'",
     "cython>=0.25",
 ]
 build-backend = "setuptools.build_meta"
