@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/spacy-curated-transformers
+      url: https://pypi.org/p/spacy-pkuseg
     permissions:
       id-token: write
       contents: read
