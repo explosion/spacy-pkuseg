@@ -14,12 +14,12 @@ jobs:
     strategy:
       matrix:
         # macos-13 is an intel runner, macos-14 is apple silicon
-        os: [ubuntu-latest, windows-latest, macos-13]
+        os: [ubuntu-latest, windows-latest, macos-13, macos-14, ubuntu-24.04-arm]
 
     steps:
       - uses: actions/checkout@v4
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.19.1
+        uses: pypa/cibuildwheel@v2.21.3
         env:
           CIBW_SOME_OPTION: value
         with:
