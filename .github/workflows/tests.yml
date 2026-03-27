@@ -9,6 +9,8 @@ on:
     paths-ignore:
       - "*.md"
 
+permissions:
+  contents: read
 env:
   MODULE_NAME: 'spacy_pkuseg'
   RUN_MYPY: 'false'
