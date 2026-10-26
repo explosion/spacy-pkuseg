@@ -1,3 +1,4 @@
+import atexit
 import os
 import tempfile
 
@@ -44,9 +45,9 @@ class Config:
         self.pkuseg_home = os.path.expanduser(os.getenv('PKUSEG_HOME', '~/.pkuseg'))
         self.trainFile = os.path.join("data", "small_training.utf8")
         self.testFile = os.path.join("data", "small_test.utf8")
-        self._tmp_dir = tempfile.TemporaryDirectory()
-        self.homepath = self._tmp_dir.name
-        self.tempFile = os.path.join(self.homepath, ".pkuseg", "temp")
+        # The scratch directory for training is created on first use, so
+        # importing the package doesn't leave a temp directory behind
+        self._tmp_dir = None
         self.readFile = os.path.join("data", "small_test.utf8")
         self.outputFile = os.path.join("data", "small_test_output.utf8")
 
@@ -64,7 +65,6 @@ class Config:
         self.trainSizeScale = 1  # for scaling the size of training data
         self.ttlIter = 20  # of training iterations
         self.nUpdate = 10  # for ADF training
-        self.outFolder = os.path.join(self.tempFile, "output")
         self.save = 1  # save model file
         self.rawResWrite = True
         self.miniBatch = 1  # mini-batch in stochastic training
@@ -76,31 +76,18 @@ class Config:
         # global variables
         self.metric = None
         self.reg = 1
-        self.outDir = self.outFolder
         self.testrawDir = "rawinputs/"
         self.testinputDir = "inputs/"
-        self.tempDir = os.path.join(self.homepath, ".pkuseg", "temp")
         self.testoutputDir = "entityoutputs/"
 
         # self.GL_init = True
         self.weightRegMode = "L2"  # choosing weight regularizer: L2, L1)
-
-        self.c_train = os.path.join(self.tempFile, "train.conll.txt")
-        self.f_train = os.path.join(self.tempFile, "train.feat.txt")
-
-        self.c_test = os.path.join(self.tempFile, "test.conll.txt")
-        self.f_test = os.path.join(self.tempFile, "test.feat.txt")
 
         self.fTune = "tune.txt"
         self.fLog = "trainLog.txt"
         self.fResSum = "summarizeResult.txt"
         self.fResRaw = "rawResult.txt"
         self.fOutput = "outputTag-{}.txt"
-
-        self.fFeatureTrain = os.path.join(self.tempFile, "ftrain.txt")
-        self.fGoldTrain = os.path.join(self.tempFile, "gtrain.txt")
-        self.fFeatureTest = os.path.join(self.tempFile, "ftest.txt")
-        self.fGoldTest = os.path.join(self.tempFile, "gtest.txt")
 
         self.modelDir = os.path.join(
             os.path.dirname(os.path.realpath(__file__)), "models", "ctb8"
@@ -115,6 +102,61 @@ class Config:
         self.wordMin = 2
         self.nLabel = 5
         self.order = 1
+
+    @property
+    def homepath(self):
+        if self._tmp_dir is None:
+            self._tmp_dir = tempfile.TemporaryDirectory()
+            atexit.register(self._tmp_dir.cleanup)
+        return self._tmp_dir.name
+
+    @property
+    def tempFile(self):
+        return os.path.join(self.homepath, ".pkuseg", "temp")
+
+    @property
+    def tempDir(self):
+        return self.tempFile
+
+    @property
+    def outFolder(self):
+        return os.path.join(self.tempFile, "output")
+
+    @property
+    def outDir(self):
+        return self.outFolder
+
+    @property
+    def c_train(self):
+        return os.path.join(self.tempFile, "train.conll.txt")
+
+    @property
+    def f_train(self):
+        return os.path.join(self.tempFile, "train.feat.txt")
+
+    @property
+    def c_test(self):
+        return os.path.join(self.tempFile, "test.conll.txt")
+
+    @property
+    def f_test(self):
+        return os.path.join(self.tempFile, "test.feat.txt")
+
+    @property
+    def fFeatureTrain(self):
+        return os.path.join(self.tempFile, "ftrain.txt")
+
+    @property
+    def fGoldTrain(self):
+        return os.path.join(self.tempFile, "gtrain.txt")
+
+    @property
+    def fFeatureTest(self):
+        return os.path.join(self.tempFile, "ftest.txt")
+
+    @property
+    def fGoldTest(self):
+        return os.path.join(self.tempFile, "gtest.txt")
 
     def globalCheck(self):
         if self.evalMetric == "f1":
